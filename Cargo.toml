@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "desktop_launcher",
+]
+resolver = "2"
