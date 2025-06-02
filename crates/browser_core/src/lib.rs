@@ -1,5 +1,19 @@
-pub struct WebPage;
+use std::sync::Arc;
+
+use servo_webview::WebView;
+use wgpu::{Device, Queue, TextureView};
+
+pub struct WebPage {
+    inner: WebView,
+}
 
 impl WebPage {
-    pub fn new() {}
+    pub fn new(url: &str, device: Arc<Device>, queue: Arc<Queue>) -> Self {
+        let inner = WebView::new(url, device, queue);
+        Self { inner }
+    }
+
+    pub fn next_frame(&mut self) -> Option<TextureView> {
+        self.inner.next_frame()
+    }
 }
