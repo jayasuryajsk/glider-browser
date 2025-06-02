@@ -1,0 +1,8 @@
+[package]
+name = "desktop_launcher"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ui_shell = { path = "../ui_shell" }
+browser_core = { path = "../browser_core" }
