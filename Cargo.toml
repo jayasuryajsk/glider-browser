@@ -1,5 +1,3 @@
 [workspace]
-members = [
-    "desktop_launcher",
-]
+members = ["crates/ui_shell", "crates/browser_core", "crates/desktop_launcher"]
 resolver = "2"

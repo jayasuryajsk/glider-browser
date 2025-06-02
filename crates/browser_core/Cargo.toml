@@ -1,0 +1,8 @@
+[package]
+name = "browser_core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+servo-webview = { path = "../../third_party/servo/components/servo-webview" }
+wgpu = "0.20"
