@@ -5,7 +5,7 @@ use std::thread::sleep;
 #[test]
 fn smoke() {
     let mut child = Command::new("cargo")
-        .args(["run", "-p", "desktop_launcher", "--", "--headless", "about:blank"])
+        .args(["run", "-p", "desktop_launcher", "--", "about:blank"])
         .spawn()
         .expect("failed to run desktop_launcher");
 
