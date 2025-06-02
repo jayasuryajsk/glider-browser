@@ -1,4 +1,4 @@
-use gpui::{AppContext, Application, Render, RenderContext, WindowOptions};
+use gpui::{self, AppContext, Application, Render, RenderContext};
 
 pub struct Root;
 
@@ -8,12 +8,9 @@ impl Render for Root {
 
 pub fn run_window<F>(init: F)
 where
-    F: FnOnce(&mut AppContext),
+    F: FnOnce(&mut gpui::AppContext) + 'static,
 {
-    let app = Application::new();
-    app.run(|cx| {
+    gpui::Application::new().run(move |cx| {
         init(cx);
-        let opts = WindowOptions::new("Glider", 1280, 800);
-        cx.open_window(opts, Root);
     });
 }

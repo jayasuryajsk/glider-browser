@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use servo_webview::WebView;
+use servo_webview::{WebView, WebViewBuilder};
 use wgpu::{Device, Queue, TextureView};
 
 pub struct WebPage {
@@ -8,8 +8,15 @@ pub struct WebPage {
 }
 
 impl WebPage {
-    pub fn new(url: &str, device: Arc<Device>, queue: Arc<Queue>) -> Self {
-        let inner = WebView::new(url, device, queue);
+    pub fn new(
+        url: &str,
+        device: Arc<Device>,
+        queue: Arc<Queue>,
+    ) -> Self {
+        let inner = WebViewBuilder::new(device, queue)
+            .url(url)
+            .build()
+            .unwrap();
         Self { inner }
     }
 

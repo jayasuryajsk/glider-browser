@@ -1,6 +1,5 @@
 [workspace]
 members = [
-    "crates/gpui",
     "crates/ui_shell",
     "crates/browser_core",
     "crates/desktop_launcher",
